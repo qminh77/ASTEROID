@@ -241,6 +241,10 @@ main {
   padding-top: 6rem;
 }
 
+.hero-copy {
+  min-width: 0;
+}
+
 .eyebrow {
   margin: 0;
   text-transform: uppercase;
@@ -367,12 +371,15 @@ main {
   border-radius: 999px;
   padding: 0.58rem 0;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
   border-color: rgba(255, 164, 95, 0.4);
 }
 
 .meme-ticker-track {
-  display: flex;
+  display: inline-flex;
   width: max-content;
+  max-width: none;
   gap: 1.4rem;
   white-space: nowrap;
   font-size: 0.73rem;
@@ -862,7 +869,7 @@ main {
   }
 
   .hero {
-    grid-template-columns: 1fr 1.02fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.02fr);
     gap: 2.8rem;
   }
 
