@@ -20,13 +20,14 @@ interface RoadmapStage {
   memeLine: string;
 }
 
-interface CommunityCard {
-  title: string;
-  description: string;
-  signal: string;
-  buttonLabel: string;
-  buttonVariant: Exclude<ButtonVariant, "tertiary">;
-  link: string;
+interface CommunityMetric {
+  label: string;
+  value: string;
+}
+
+interface CommunityAlert {
+  tag: string;
+  text: string;
 }
 
 interface MemeOrbiter {
@@ -85,23 +86,17 @@ const roadmap: RoadmapStage[] = [
   }
 ];
 
-const communityCards: CommunityCard[] = [
-  {
-    title: "Telegram HQ",
-    description: "Join the ASTEROID FLOKI mission room for real-time launch operations.",
-    signal: "Live Alpha Feed",
-    buttonLabel: "JOIN TELEGRAM",
-    buttonVariant: "primary",
-    link: "https://t.me/asteroidflokitg"
-  },
-  {
-    title: "Trading View",
-    description: "Track liquidity, chart momentum, and market action instantly.",
-    signal: "Meme Momentum Radar",
-    buttonLabel: "VIEW ON DEXSCREENER",
-    buttonVariant: "secondary",
-    link: "https://dexscreener.com"
-  }
+const communityMetrics: CommunityMetric[] = [
+  { label: "Raid Status", value: "ACTIVE" },
+  { label: "Meme Ops", value: "24/7 LIVE" },
+  { label: "Signal Strength", value: "ULTRA BULLISH" }
+];
+
+const communityAlerts: CommunityAlert[] = [
+  { tag: "ALERT", text: "Daily raid targets drop first in Telegram HQ." },
+  { tag: "TREND", text: "Community meme waves push constant social momentum." },
+  { tag: "ALPHA", text: "Dex moves, chart updates, and alerts in real time." },
+  { tag: "MODE", text: "No brakes. Maximum degen energy online." }
 ];
 
 const memeOrbiters: MemeOrbiter[] = [
@@ -150,6 +145,14 @@ const footerTickerPhrases: string[] = [
   "NO BRAKES",
   "MEME TO THE MOON",
   "0/0 FINAL TAX"
+];
+
+const communityTickerPhrases: string[] = [
+  "JOIN THE TELEGRAM WAR ROOM",
+  "RAID ENERGY: ON",
+  "COMMUNITY SIGNAL: MAX",
+  "MEME COIN COMMAND DECK LIVE",
+  "NO BRAKES, ONLY MOMENTUM"
 ];
 
 const SectionHeader = ({ eyebrow, title }: { eyebrow: string; title: string }) => (
@@ -385,29 +388,74 @@ const App = () => {
 
         <section id="community" className="section section-community">
           <SectionHeader eyebrow="Broadcast Channel" title="COMMUNITY & SOCIALS" />
-          <div className="glass community-burst" data-reveal>
-            <div className="community-badges">
-              {communityPulseTags.map((tag) => (
-                <span key={tag}>{tag}</span>
+          <div className="community-command-grid">
+            <article className="glass community-command-deck" data-reveal>
+              <div className="command-topline">
+                <span className="command-dot" aria-hidden="true" />
+                LIVE MEME COMMAND DECK
+              </div>
+              <h3>Telegram War Room</h3>
+              <p>
+                Zero-latency meme coordination, live callouts, and raid wave execution. This is
+                the core channel where ASTEROID FLOKI momentum gets amplified.
+              </p>
+              <div className="community-cta-row">
+                <a
+                  href="https://t.me/asteroidflokitg"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-primary community-big-btn"
+                >
+                  JOIN TELEGRAM
+                </a>
+                <a
+                  href="https://dexscreener.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-secondary community-big-btn"
+                >
+                  VIEW ON DEXSCREENER
+                </a>
+              </div>
+              <div className="community-metrics">
+                {communityMetrics.map((metric) => (
+                  <div key={metric.label}>
+                    <span>{metric.label}</span>
+                    <strong>{metric.value}</strong>
+                  </div>
+                ))}
+              </div>
+              <div className="community-deck-orbit" aria-hidden="true">
+                <img className="deck-orbit-a" src="/nobg.png" alt="" />
+                <img className="deck-orbit-b" src="/nobg.png" alt="" />
+                <img className="deck-orbit-c" src="/nobg.png" alt="" />
+              </div>
+            </article>
+
+            <aside className="glass community-alert-panel" data-reveal>
+              <h4>Meme Alert Feed</h4>
+              <p className="alert-sub">Broadcasting degen signals from mission control.</p>
+              <div className="community-alert-list">
+                {communityAlerts.map((alert) => (
+                  <article className="community-alert-item" key={alert.text}>
+                    <span>{alert.tag}</span>
+                    <p>{alert.text}</p>
+                  </article>
+                ))}
+              </div>
+              <div className="community-badges">
+                {communityPulseTags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
+              </div>
+            </aside>
+          </div>
+          <div className="glass community-ticker" data-reveal>
+            <div className="community-ticker-track" aria-hidden="true">
+              {[...communityTickerPhrases, ...communityTickerPhrases].map((phrase, index) => (
+                <span key={`${phrase}-${index}`}>🚀 {phrase} 🐶</span>
               ))}
             </div>
-            <div className="community-mini-orbit" aria-hidden="true">
-              <img className="mini-orbit-a" src="/nobg.png" alt="" />
-              <img className="mini-orbit-b" src="/nobg.png" alt="" />
-              <img className="mini-orbit-c" src="/nobg.png" alt="" />
-            </div>
-          </div>
-          <div className="community-grid">
-            {communityCards.map((card) => (
-              <article key={card.title} className="glass community-card" data-reveal>
-                <span className="community-signal">{card.signal}</span>
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-                <a href={card.link} target="_blank" rel="noreferrer" className={`btn btn-${card.buttonVariant} full`}>
-                  {card.buttonLabel}
-                </a>
-              </article>
-            ))}
           </div>
         </section>
       </main>
