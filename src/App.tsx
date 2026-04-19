@@ -388,67 +388,86 @@ const App = () => {
 
         <section id="community" className="section section-community">
           <SectionHeader eyebrow="Broadcast Channel" title="COMMUNITY & SOCIALS" />
-          <div className="community-command-grid">
-            <article className="glass community-command-deck" data-reveal>
-              <div className="command-topline">
-                <span className="command-dot" aria-hidden="true" />
-                LIVE MEME COMMAND DECK
-              </div>
-              <h3>Telegram War Room</h3>
-              <p>
-                Zero-latency meme coordination, live callouts, and raid wave execution. This is
-                the core channel where ASTEROID FLOKI momentum gets amplified.
-              </p>
-              <div className="community-cta-row">
-                <a
-                  href="https://t.me/asteroidflokitg"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-primary community-big-btn"
-                >
-                  JOIN TELEGRAM
-                </a>
-                <a
-                  href="https://dexscreener.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-secondary community-big-btn"
-                >
-                  VIEW ON DEXSCREENER
-                </a>
-              </div>
-              <div className="community-metrics">
-                {communityMetrics.map((metric) => (
-                  <div key={metric.label}>
-                    <span>{metric.label}</span>
-                    <strong>{metric.value}</strong>
+          <div className="community-superstage" data-reveal>
+            <span className="community-ribbon ribbon-top">MEME MISSION CONTROL</span>
+            <div className="community-command-grid">
+              <article className="glass community-command-deck">
+                <div className="command-chassis">
+                  <div className="command-grid" aria-hidden="true" />
+                  <div className="command-topline">
+                    <span className="command-dot" aria-hidden="true" />
+                    LIVE MEME COMMAND DECK
                   </div>
-                ))}
-              </div>
-              <div className="community-deck-orbit" aria-hidden="true">
-                <img className="deck-orbit-a" src="/nobg.png" alt="" />
-                <img className="deck-orbit-b" src="/nobg.png" alt="" />
-                <img className="deck-orbit-c" src="/nobg.png" alt="" />
-              </div>
-            </article>
+                  <h3>
+                    <span>Telegram</span>
+                    War Room
+                  </h3>
+                  <p>
+                    Zero-latency meme coordination, live callouts, and raid wave execution. This
+                    is the command center where ASTEROID FLOKI momentum is manufactured.
+                  </p>
+                  <div className="community-cta-row">
+                    <a
+                      href="https://t.me/asteroidflokitg"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-primary community-big-btn"
+                    >
+                      JOIN TELEGRAM
+                    </a>
+                    <a
+                      href="https://dexscreener.com"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="btn btn-secondary community-big-btn"
+                    >
+                      VIEW ON DEXSCREENER
+                    </a>
+                  </div>
+                  <div className="community-metrics">
+                    {communityMetrics.map((metric) => (
+                      <div key={metric.label}>
+                        <span>{metric.label}</span>
+                        <strong>{metric.value}</strong>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="community-deck-orbit" aria-hidden="true">
+                  <img className="deck-orbit-a" src="/nobg.png" alt="" />
+                  <img className="deck-orbit-b" src="/nobg.png" alt="" />
+                  <img className="deck-orbit-c" src="/nobg.png" alt="" />
+                </div>
+              </article>
 
-            <aside className="glass community-alert-panel" data-reveal>
-              <h4>Meme Alert Feed</h4>
-              <p className="alert-sub">Broadcasting degen signals from mission control.</p>
-              <div className="community-alert-list">
-                {communityAlerts.map((alert) => (
-                  <article className="community-alert-item" key={alert.text}>
-                    <span>{alert.tag}</span>
-                    <p>{alert.text}</p>
-                  </article>
-                ))}
-              </div>
-              <div className="community-badges">
-                {communityPulseTags.map((tag) => (
-                  <span key={tag}>{tag}</span>
-                ))}
-              </div>
-            </aside>
+              <aside className="glass community-alert-panel">
+                <div className="radar-shell" aria-hidden="true">
+                  <span className="radar-ring ring-1" />
+                  <span className="radar-ring ring-2" />
+                  <span className="radar-ring ring-3" />
+                  <span className="radar-cross radar-x" />
+                  <span className="radar-cross radar-y" />
+                  <span className="radar-sweep" />
+                  <img src="/nobg.png" alt="" className="radar-meme" />
+                </div>
+                <h4>Meme Alert Feed</h4>
+                <p className="alert-sub">Broadcasting degen signals from mission control.</p>
+                <div className="community-alert-list">
+                  {communityAlerts.map((alert) => (
+                    <article className="community-alert-item" key={alert.text}>
+                      <span>{alert.tag}</span>
+                      <p>{alert.text}</p>
+                    </article>
+                  ))}
+                </div>
+                <div className="community-badges">
+                  {communityPulseTags.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </aside>
+            </div>
+            <span className="community-ribbon ribbon-bottom">RAID STATUS: ACTIVE • SIGNAL: ULTRA BULLISH</span>
           </div>
           <div className="glass community-ticker" data-reveal>
             <div className="community-ticker-track" aria-hidden="true">
