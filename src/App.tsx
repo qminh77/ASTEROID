@@ -16,11 +16,14 @@ interface RoadmapStage {
   stage: string;
   title: string;
   description: string;
+  emoji: string;
+  memeLine: string;
 }
 
 interface CommunityCard {
   title: string;
   description: string;
+  signal: string;
   buttonLabel: string;
   buttonVariant: Exclude<ButtonVariant, "tertiary">;
   link: string;
@@ -55,22 +58,30 @@ const roadmap: RoadmapStage[] = [
   {
     stage: "Stage 01",
     title: "Ignition",
-    description: "Launch branding, social channels, and community pilot activation."
+    description: "Launch branding, social channels, and community pilot activation.",
+    emoji: "🧨",
+    memeLine: "Meme engines primed and ready."
   },
   {
     stage: "Stage 02",
     title: "Orbit Entry",
-    description: "DEX profile push, meme campaign waves, and holder growth acceleration."
+    description: "DEX profile push, meme campaign waves, and holder growth acceleration.",
+    emoji: "🛰️",
+    memeLine: "Viral orbit achieved across channels."
   },
   {
     stage: "Stage 03",
     title: "Solar Blast",
-    description: "Partnership collabs, creator expansions, and sustained trend momentum."
+    description: "Partnership collabs, creator expansions, and sustained trend momentum.",
+    emoji: "☄️",
+    memeLine: "Comet-level exposure unlocks next wave."
   },
   {
     stage: "Stage 04",
     title: "Galaxy Dominance",
-    description: "Mass-scale community expansion and cross-ecosystem visibility."
+    description: "Mass-scale community expansion and cross-ecosystem visibility.",
+    emoji: "👑",
+    memeLine: "Meme empire mode fully online."
   }
 ];
 
@@ -78,6 +89,7 @@ const communityCards: CommunityCard[] = [
   {
     title: "Telegram HQ",
     description: "Join the ASTEROID FLOKI mission room for real-time launch operations.",
+    signal: "Live Alpha Feed",
     buttonLabel: "JOIN TELEGRAM",
     buttonVariant: "primary",
     link: "https://t.me/asteroidflokitg"
@@ -85,6 +97,7 @@ const communityCards: CommunityCard[] = [
   {
     title: "Trading View",
     description: "Track liquidity, chart momentum, and market action instantly.",
+    signal: "Meme Momentum Radar",
     buttonLabel: "VIEW ON DEXSCREENER",
     buttonVariant: "secondary",
     link: "https://dexscreener.com"
@@ -107,6 +120,36 @@ const memeTickerPhrases: string[] = [
   "FLYING TO THE NEXT GALAXY",
   "0/0 FINAL TAX",
   "ASTEROID FLOKI TAKEOVER"
+];
+
+const storyMemeTags: string[] = [
+  "ELON TWEET LORE",
+  "SHIBA IN SPACE",
+  "DEGEN CERTIFIED",
+  "MEME FUEL MAX",
+  "ASTEROID ENERGY"
+];
+
+const tokenReactorSignals: Array<{ label: string; value: string }> = [
+  { label: "Meme Velocity", value: "HYPERDRIVE" },
+  { label: "Vibe Density", value: "ULTRA HIGH" },
+  { label: "FUD Shield", value: "ACTIVE" }
+];
+
+const communityPulseTags: string[] = [
+  "24/7 MEME CHAT",
+  "RAID READY",
+  "SPACE GANG",
+  "NO SLEEP CREW",
+  "MOON WATCH"
+];
+
+const footerTickerPhrases: string[] = [
+  "ASTEROID FLOKI",
+  "DOG IN SPACE",
+  "NO BRAKES",
+  "MEME TO THE MOON",
+  "0/0 FINAL TAX"
 ];
 
 const SectionHeader = ({ eyebrow, title }: { eyebrow: string; title: string }) => (
@@ -238,7 +281,7 @@ const App = () => {
           </figure>
         </section>
 
-        <section id="story" className="section">
+        <section id="story" className="section section-story">
           <SectionHeader eyebrow="Origin Signal" title="THE ASTEROID SHIBA STORY" />
           <div className="story-layout">
             <article className="glass story-copy" data-reveal>
@@ -258,53 +301,106 @@ const App = () => {
               </blockquote>
             </figure>
           </div>
-        </section>
-
-        <section id="tokenomics" className="section">
-          <SectionHeader eyebrow="Mission Stats" title="TOKENOMICS" />
-          <div className="token-grid">
-            <article className="glass token-card" data-reveal>
-              <div className="token-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48">
-                  <circle cx="24" cy="24" r="18" />
-                  <path d="M14 24h20M24 14v20" />
-                </svg>
-              </div>
-              <h3>Total Supply</h3>
-              <p>1,000,000</p>
-            </article>
-
-            <article className="glass token-card" data-reveal>
-              <div className="token-icon" aria-hidden="true">
-                <svg viewBox="0 0 48 48">
-                  <rect x="11" y="11" width="26" height="26" rx="7" />
-                  <path d="M17 24h14M24 17v14" />
-                </svg>
-              </div>
-              <h3>Tax</h3>
-              <p>0/0 Final Tax</p>
-            </article>
+          <div className="story-tag-cloud" data-reveal>
+            {storyMemeTags.map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
+          <div className="story-meme-swarm" aria-hidden="true">
+            <img className="swarm-a" src="/nobg.png" alt="" />
+            <img className="swarm-b" src="/nobg.png" alt="" />
+            <img className="swarm-c" src="/nobg.png" alt="" />
           </div>
         </section>
 
-        <section id="roadmap" className="section">
+        <section id="tokenomics" className="section section-tokenomics">
+          <SectionHeader eyebrow="Mission Stats" title="TOKENOMICS" />
+          <div className="token-layout">
+            <div className="token-grid">
+              <article className="glass token-card" data-reveal>
+                <div className="token-icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48">
+                    <circle cx="24" cy="24" r="18" />
+                    <path d="M14 24h20M24 14v20" />
+                  </svg>
+                </div>
+                <h3>Total Supply</h3>
+                <p>1,000,000</p>
+              </article>
+
+              <article className="glass token-card" data-reveal>
+                <div className="token-icon" aria-hidden="true">
+                  <svg viewBox="0 0 48 48">
+                    <rect x="11" y="11" width="26" height="26" rx="7" />
+                    <path d="M17 24h14M24 17v14" />
+                  </svg>
+                </div>
+                <h3>Tax</h3>
+                <p>0/0 Final Tax</p>
+              </article>
+            </div>
+            <aside className="glass token-reactor" data-reveal>
+              <div className="reactor-core" aria-hidden="true">
+                <img src="/nobg.png" alt="" />
+              </div>
+              <h3>Meme Reactor Online</h3>
+              <p className="reactor-copy">
+                Core narrative + elite art + high-energy community pressure.
+              </p>
+              <div className="reactor-signals">
+                {tokenReactorSignals.map((signal) => (
+                  <div key={signal.label}>
+                    <span>{signal.label}</span>
+                    <strong>{signal.value}</strong>
+                  </div>
+                ))}
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section id="roadmap" className="section section-roadmap">
           <SectionHeader eyebrow="Flight Timeline" title="ROADMAP" />
+          <div className="glass roadmap-runway" data-reveal>
+            <div className="runway-track" aria-hidden="true">
+              <span className="runway-trace" />
+              <span className="runway-rocket">🚀</span>
+            </div>
+            <p>Trajectory locked: each stage injects more meme fuel and community thrust.</p>
+          </div>
           <div className="timeline">
             {roadmap.map((item) => (
               <article key={item.stage} className="glass timeline-item" data-reveal>
                 <span className="stage">{item.stage}</span>
+                <span className="timeline-emoji" aria-hidden="true">
+                  {item.emoji}
+                </span>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
+                <p className="timeline-meme-line">{item.memeLine}</p>
               </article>
             ))}
           </div>
         </section>
 
-        <section id="community" className="section">
+        <section id="community" className="section section-community">
           <SectionHeader eyebrow="Broadcast Channel" title="COMMUNITY & SOCIALS" />
+          <div className="glass community-burst" data-reveal>
+            <div className="community-badges">
+              {communityPulseTags.map((tag) => (
+                <span key={tag}>{tag}</span>
+              ))}
+            </div>
+            <div className="community-mini-orbit" aria-hidden="true">
+              <img className="mini-orbit-a" src="/nobg.png" alt="" />
+              <img className="mini-orbit-b" src="/nobg.png" alt="" />
+              <img className="mini-orbit-c" src="/nobg.png" alt="" />
+            </div>
+          </div>
           <div className="community-grid">
             {communityCards.map((card) => (
               <article key={card.title} className="glass community-card" data-reveal>
+                <span className="community-signal">{card.signal}</span>
                 <h3>{card.title}</h3>
                 <p>{card.description}</p>
                 <a href={card.link} target="_blank" rel="noreferrer" className={`btn btn-${card.buttonVariant} full`}>
@@ -317,6 +413,13 @@ const App = () => {
       </main>
 
       <footer className="footer">
+        <div className="footer-marquee" aria-hidden="true">
+          <div className="footer-marquee-track">
+            {[...footerTickerPhrases, ...footerTickerPhrases].map((phrase, index) => (
+              <span key={`${phrase}-${index}`}>☄️ {phrase} 🐶</span>
+            ))}
+          </div>
+        </div>
         <p>ASTEROID FLOKI • 1,000,000 Total Supply • 0/0 Final Tax</p>
         <p>
           Telegram:
